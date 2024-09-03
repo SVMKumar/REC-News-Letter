@@ -7,8 +7,8 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(express.static("public"));
 
 client.setConfig({
-    apiKey: "3f6f2b2f2cbdbf7e6e88ffa7f518b343-us11",
-    server: "us11",
+    apiKey: "{API_KEY}",
+    server: "{SERVER}",
     });
 
 app.get("/", function(req, res){
@@ -20,7 +20,7 @@ app.post("/", async function(req, res){
     const lastName = req.body.lastName;
     const email = req.body.email;
     try {
-        const response = await client.lists.addListMember("7dc856cfb5", {
+        const response = await client.lists.addListMember("{LIST_ID}", {
           email_address: email,
           status: "subscribed",
           merge_fields: {
